@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  
+  loadbalancer:
+    image: jwilder/nginx-proxy
+    ports:
+      - "8080:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+  
+  n1:
+    image: nginx
+    environment:
+      - VIRTUAL_HOST=m
+    container_name: nginx1
+      
+  n2:
+    image: nginx
+    environment:
+      - VIRTUAL_HOST=m
+    container_name: nginx2
+  
+  n3:
+    image: nginx
+    environment:
+      - VIRTUAL_HOST=m
+    container_name: nginx3
+  
+  n4:
+    image: nginx
+    environment:
+      - VIRTUAL_HOST=m
+    container_name: nginx4
+
+      
+    
+
